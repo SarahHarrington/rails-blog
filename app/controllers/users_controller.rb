@@ -8,17 +8,21 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def create
     # render plain: params[:user].inspect
     @user = User.new(user_params)
-    @user.save
-    redirect_to @user
-  end
-
-  def edit
-    @user = User.find(params[:id])
+    if @user.save
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -37,11 +41,8 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-
   private
   def user_params
     params.require(:user).permit(:name, :email)
   end
-
-
 end
