@@ -6,5 +6,10 @@
   <%= form.label :password %>
   <%= form.password_field :password %>
   <br>
+  <%= form.label :remember_me do %>
+    <%= form.check_box :remember_me %>
+    <span>Remember me</span>
+  <% end %>
+  <br>
   <%= form.submit "Log in" %>
 <% end %>
