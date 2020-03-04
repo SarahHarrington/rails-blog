@@ -5,9 +5,8 @@
   <br>
   <%= link_to 'New blog post', new_article_path %>
   <br>
-  <%= link_to 'New User', signup_path %>
-  <br>
   <%= link_to 'All Users', controller: 'users' %>
 <% else %>
   <p>You should create an account.</p>
+  <%= link_to 'New User', signup_path %>
 <% end %>
