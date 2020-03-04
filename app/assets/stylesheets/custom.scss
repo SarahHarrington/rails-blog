@@ -15,3 +15,25 @@ body {
 .user-display {
   padding-left: 10px;
 }
+
+.add-blog-post {
+  padding: 2px;
+  font-size: .8rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+/* Article Listing */
+.blog-post {
+  padding: 10px;
+}
+
+.article-title {
+  width: 80vw;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.article-body {
+  width: 80vw;
+}

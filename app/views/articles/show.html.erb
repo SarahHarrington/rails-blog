@@ -1,12 +1,9 @@
-<p>
-  <strong> Title:</strong>
+<div class="article-title">
   <%= @article.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
+</div>
+<div class="article-body">
   <%= @article.text %>
-</p>
+</div>
 
 <h2>Comments</h2>
 <%= render @article.comments%>
