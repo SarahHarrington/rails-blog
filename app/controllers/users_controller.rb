@@ -56,6 +56,7 @@ class UsersController < ApplicationController
 
   #confirms the user is logged in
   def logged_in_user
+    store_location
     unless logged_in?
       redirect_to login_url
     end
