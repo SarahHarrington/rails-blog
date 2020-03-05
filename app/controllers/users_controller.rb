@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+
   def index
     @users = User.all
   end
@@ -12,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def create
@@ -26,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
 
     if @user.update(user_params)
       redirect_to @user
@@ -34,6 +37,11 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
 
   def destroy
     @user = User.find(params[:id])
@@ -44,5 +52,18 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  #confirms the user is logged in
+  def logged_in_user
+    unless logged_in?
+      redirect_to login_url
+    end
+  end
+
+  def correct_user
+    #since @user is defined here, it was removed from the edit and update methods
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end
