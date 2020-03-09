@@ -7,9 +7,10 @@ User.create(name: 'Example User',
 99.times do
   first_name = Faker::Creature::Cat.name
   last_name = Faker::Creature::Cat.breed
-  email = Faker::Internet::email(name: first_name)
+  full_name = first_name + ' ' + last_name
+  email = Faker::Internet.safe_email(name: full_name)
   password = "password"
-  User.create!( name: first_name + ' ' + last_name,
+  User.create!( name: full_name,
                 email: email,
                 password: password,
                 password_confirmation: password)
