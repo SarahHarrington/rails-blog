@@ -2,7 +2,8 @@
 User.create(name: 'Example User',
             email: 'sarah@sarahdoes.tech',
             password: 'foobar',
-            password_confirmation: 'foobar')
+            password_confirmation: 'foobar',
+            admin: true)
 
 99.times do
   first_name = Faker::Creature::Cat.name

@@ -1,6 +1,8 @@
 <p>Name: <%= user.name %></p>
   <p>Email: <%= user.email %></p>
   <p><%= link_to "Edit", edit_user_path(user) %></p>
-  <p><%= link_to 'Delete', user_path(user),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></p>
+  <% if current_user.admin? && !current_user?(user) %>
+    <p><%= link_to 'Delete', user_path(user),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
