@@ -20,10 +20,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    # render plain: params[:user].inspect
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      UserMailer.account_activation(@user).deliver_now
+      redirect_to root_url
     else
       render 'new'
     end
