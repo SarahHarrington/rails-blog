@@ -4,7 +4,7 @@ class AccountActivationsController < ApplicationController
 
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
       user.activate
-      #add some sort of flash
+      flash[:success] = "Your account has been activated!"
       log_in user
       redirect_to user
     else
