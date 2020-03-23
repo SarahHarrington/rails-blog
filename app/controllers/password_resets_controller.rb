@@ -24,7 +24,7 @@ before_action :check_expiration, only: [:edit, :update]
 
   def update
     if params[:user][:password].empty?
-      @user.errors.add(:password, "can't be empty")
+      # @user.errors.add(:password, "can't be empty")
       render 'edit'
     elsif @user.update(user_params)
       log_in @user
