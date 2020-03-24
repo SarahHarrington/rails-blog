@@ -24,8 +24,12 @@ body {
   text-decoration: none;
 }
 
-.flash {
+.flash-success {
   width: 100vw;
+  text-align: center;
+  background-color: #DDEDAA;
+  font-size: 1em;
+  padding: 20px 0;
 }
 
 /* Show User */
