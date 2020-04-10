@@ -1,6 +1,10 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
   margin: 0;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
 }
 
 .wrapper {
@@ -17,11 +21,18 @@ body {
 }
 
 .nav-bar {
+  display: grid;
+  grid-template-rows: 1;
+  grid-template-columns: 1fr 1fr 1fr;
   list-style: none;
   background-color: #9B9ECE;
   width: 100vw;
   margin: 0;
   text-decoration: none;
+}
+
+.logged-in-menu {
+  display: none;
 }
 
 .flash-success {
