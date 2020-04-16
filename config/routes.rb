@@ -15,5 +15,9 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
+  namespace :api do
+    resources :articles, :users, :account_activations, :password_resets, :defaults => { :format => :json }
+  end
+
   root 'welcome#index'
 end
