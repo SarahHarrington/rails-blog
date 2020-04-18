@@ -12,10 +12,11 @@ module Blog
     config.load_defaults 6.0
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'http://localhost:4200'
         resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
       end
     end
+    config.api_only = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

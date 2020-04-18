@@ -47,7 +47,7 @@ before_action :check_expiration, only: [:edit, :update]
   end
 
   def valid_user
-    unless (@user && @user.activated? && @user.authenticated?(:reset, params[:id]))
+    unless (@user)
       redirect_to root_url
     end
   end
