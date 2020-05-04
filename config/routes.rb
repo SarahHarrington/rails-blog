@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   namespace :api do
-    resources :articles, :users, :account_activations, :password_resets, :defaults => { :format => :json }
+    resources :users, :account_activations, :password_resets, :defaults => { :format => :json }
+    resources :articles, :defaults => { :format => :json } do
+      resources :comments
+    end
   end
 
   root 'welcome#index'

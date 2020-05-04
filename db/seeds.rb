@@ -7,10 +7,8 @@ User.create(name: 'Example User',
             activated: true,
             activated_at: Time.zone.now)
 
-99.times do
-  first_name = Faker::Creature::Cat.name
-  last_name = Faker::Creature::Cat.breed
-  full_name = first_name + ' ' + last_name
+10.times do
+  full_name = Faker::FunnyName.two_word_name
   email = Faker::Internet.safe_email(name: full_name)
   password = "password"
   User.create!( name: full_name,
@@ -22,8 +20,14 @@ User.create(name: 'Example User',
 end
 
 10.times do
-  title = Faker::Lorem.sentence(word_count: 3, random_words_to_add: 3)
-  text_body = Faker::Lorem.paragraph(sentence_count: 2, random_sentences_to_add: 3)
-  Article.create!(  title: title,
+  title = Faker::Hipster.sentence(word_count: 3, random_words_to_add: 3)
+  text_body = Faker::Hipster.paragraph(sentence_count: 5, random_sentences_to_add: 3)
+  the_article = Article.create!(  title: title,
                     text: text_body)
+  randomNumber = rand 4;
+  randomNumber.times do
+    commenter = Faker::FunnyName.two_word_name
+    comment = Faker::Hipster.sentence(word_count: 3, random_words_to_add: 3)
+    Comment.create!(commenter: commenter, body: comment, article_id: the_article.id)
+  end
 end
