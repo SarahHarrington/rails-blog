@@ -10,10 +10,12 @@ module Api
     end
 
     def destroy
-      @article = Article.find(params[:article_id])
-      @comment = @article.comments.find(params[:id])
-      @comment.destroy
-      redirect_to article_path(@article)
+      @comment = Comment.find(params[:id])
+      if @comment.destroy
+        render json: @comment
+      else
+        render status: 400
+      end
     end
 
     def index
