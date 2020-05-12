@@ -28,7 +28,7 @@ module Api
       @article = Article.find(params[:id])
       @article.destroy
 
-      redirect_to articles_path
+      render json: @article
     end
 
     private
