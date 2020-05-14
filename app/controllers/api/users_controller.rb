@@ -4,74 +4,74 @@ module Api
   # before_action :correct_user, only: [:edit, :update]
   # before_action :admin_user, only: :destroy
 
-  def index
-    @users = User.paginate(page: params[:page])
-  end
+    # def index
+    #   @users = User.paginate(page: params[:page])
+    # end
 
-  def show
-    @user = User.find(params[:id])
-  end
+    # def show
+    #   @user = User.find(params[:id])
+    # end
 
-  def new
-    @user = User.new
-  end
-
-  def edit
-    # @user = User.find(params[:id])
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      # @user.send_activation_email
-      render json: @user
-    else
-      render json: @user
+    def new
+      @user = User.new
     end
-  end
 
-  def update
-    # @user = User.find(params[:id])
+    # def edit
+    #   # @user = User.find(params[:id])
+    # end
 
-    if @user.update(user_params)
-      redirect_to @user
-    else
-      render 'edit'
+    def create
+      @user = User.new(user_params)
+      if @user.save
+        # @user.send_activation_email
+        render json: @user
+      else
+        render status: 400
+      end
     end
-  end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+    # def update
+    #   # @user = User.find(params[:id])
+
+    #   if @user.update(user_params)
+    #     redirect_to @user
+    #   else
+    #     render 'edit'
+    #   end
+    # end
+
+    # def edit
+    #   @user = User.find(params[:id])
+    # end
 
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path
-  end
+    # def destroy
+    #   @user = User.find(params[:id])
+    #   @user.destroy
+    #   redirect_to users_path
+    # end
 
-  private
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  #confirms the user is logged in
-  def logged_in_user
-    store_location
-    unless logged_in?
-      redirect_to login_url
+    private
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-  end
 
-  def correct_user
-    #since @user is defined here, it was removed from the edit and update methods
-    @user = User.find(params[:id])
-    # redirect_to(root_url) unless current_user?(@user)
-  end
+    #confirms the user is logged in
+    # def logged_in_user
+    #   store_location
+    #   unless logged_in?
+    #     redirect_to login_url
+    #   end
+    # end
 
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
+    # def correct_user
+    #   #since @user is defined here, it was removed from the edit and update methods
+    #   @user = User.find(params[:id])
+    #   # redirect_to(root_url) unless current_user?(@user)
+    # end
+
+    # def admin_user
+    #   redirect_to(root_url) unless current_user.admin?
+    # end
   end
-end
 end
