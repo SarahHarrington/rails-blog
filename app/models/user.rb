@@ -9,6 +9,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   has_secure_password
+  has_secure_token
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # returns a hash digest of the given string
