@@ -13,6 +13,12 @@ module Api
       end
     end
 
+    def destroy
+      if current_user.update(token: nil)
+        head :no_content
+      end
+    end
+
     private
 
     def user_params
