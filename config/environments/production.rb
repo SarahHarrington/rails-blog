@@ -22,6 +22,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.action_cable.allowed_request_origins = [ 'https://mysterious-refuge-67427.herokuapp.com/' ]
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
