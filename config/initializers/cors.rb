@@ -9,5 +9,5 @@ end
 
 
 Rails.application.config.hosts << "mysterious-refuge-67427.herokuapp.com"
-Rails.application.config.hosts << "mysterious-refuge-67427.herokuapp.com"
+Rails.application.config.hosts << "lit-everglades-04601.herokuapp.com"
   
