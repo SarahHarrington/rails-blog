@@ -17,10 +17,11 @@ module Blog
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'https://mysterious-refuge-67427.herokuapp.com/'
-        resource ('*', 
+        resource 
+          '*', 
           headers: :any, 
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
-        )
+        
       end
     end
     # config.middleware.delete ActionDispatch::Cookies
