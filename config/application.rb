@@ -13,7 +13,6 @@ module Blog
 
     config.load_defaults 6.0
     config.api_only = true
-
     # config.middleware.delete ActionDispatch::Cookies
     # config.middleware.delete ActionDispatch::Session::CookieStore
     # Settings in config/environments/* take precedence over those specified here.
