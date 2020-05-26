@@ -8,6 +8,6 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 end
 
 
-Rails.application.config.hosts << "mysterious-refuge-67427.herokuapp.com"
+# Rails.application.config.hosts << "mysterious-refuge-67427.herokuapp.com"
 Rails.application.config.hosts << "lit-everglades-04601.herokuapp.com"
   
