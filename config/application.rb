@@ -10,12 +10,6 @@ module Blog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
-      allow do
-        origins 'https://mysterious-refuge-67427.herokuapp.com/'
-        resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
-      end
-    end
     config.api_only = true
     config.middleware.delete ActionDispatch::Cookies
     config.middleware.delete ActionDispatch::Session::CookieStore
