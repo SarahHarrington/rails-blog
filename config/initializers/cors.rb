@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'herokuapp.com'
+    origins 'mysterious-refuge-67427.herokuapp.com'
     resource '*', 
       headers: :any, 
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
