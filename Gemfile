@@ -10,7 +10,7 @@ gem 'faker', '~> 2.1.2'
 gem 'will_paginate', '~> 3.1.8'
 gem 'rack-cors'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
